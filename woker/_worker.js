@@ -1,3 +1,0 @@
-name = "cf-ip-sub-ui"
-main = "worker.js"
-compatibility_date = "2024-10-01"
