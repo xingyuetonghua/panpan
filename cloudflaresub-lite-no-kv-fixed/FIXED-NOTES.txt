@@ -1,0 +1,5 @@
+修复内容：
+1. 无 KV 版本生成的订阅链接从 /sub?target=... 改为 /sub/inline?target=...
+2. 原因：wrangler.toml 的 run_worker_first 只包含 /sub/*，而 Worker 路由也只处理 /sub/ 开头。
+   旧链接 /sub?... 不会进入订阅处理逻辑，容易返回前端 HTML，v2rayN 会显示“无效的订阅内容”。
+3. 注意：无 KV 版本仍然会把订阅数据塞进 URL 的 data 参数；如果节点数 × 优选 IP 太多，链接过长，部分客户端仍可能超时或导入失败。
